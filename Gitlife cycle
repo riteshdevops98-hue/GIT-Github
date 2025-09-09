@@ -1,0 +1,71 @@
+Git File Lifecycle 
+
+Untracked
+
+File is new and Git isn’t tracking it.
+
+Tracked → Modified
+
+Git is tracking the file, and it has local changes.
+
+Staged (git add)
+
+Changes are marked to be committed.
+
+Committed (git commit)
+
+Changes are saved in your local Git database (.git folder).
+
+Pushed (git push)
+
+Commits from local repo are uploaded to the remote repo (like GitHub, GitLab, Bitbucket).
+
+⚡ Lifecycle Flow (Extended)
+Untracked  ──>  Staged  ──>  Committed  ──>  Pushed
+     ▲           ▲             │             │
+     │           │             ▼             ▼
+     └── Modified <───────── Unmodified   Remote Repo
+
+🔹 Commands in Lifecycle
+
+Check status:
+
+git status
+
+
+Track new files (Untracked → Staged):
+
+git add <file>
+
+
+Stage modified files (Modified → Staged):
+
+git add <file>
+
+
+Commit staged changes (Staged → Committed):
+
+git commit -m "message"
+
+
+Push commits to remote (Committed → Pushed):
+
+git push origin main
+
+
+Modify after commit (Committed → Modified):
+Edit the file again.
+
+✅ Quick Summary with Push:
+
+Untracked → not in Git.
+
+Tracked/Modified → changed locally.
+
+Staged (git add) → ready for commit.
+
+Committed (git commit) → stored locally.
+
+Pushed (git push) → uploaded to remote repo.
+
+Do you want me to create a clean whiteboard diagram (like a workflow with arrows showing git add → git
