@@ -1,0 +1,104 @@
+Ways to connect to a remote repo
+
+Git clone
+1-git clone <remote-url>
+
+Examples:
+
+HTTPS → git clone https://github.com/user/repo.git
+
+SSH → git clone git@github.com:user/repo.git
+
+GitHub CLI → gh repo clone user/repo
+
+2= Add a Remote to an Existing Local Repo
+
+git remote add origin <remote-url>
+
+
+Examples:
+
+HTTPS → git remote add origin https://github.com/user/repo.git
+
+SSH → git remote add origin git@github.com:user/repo.git
+
+3- Fork + Clone (Special GitHub / GitLab flow)
+
+Fork a repo on GitHub/GitLab.
+
+Clone your fork:
+
+git clone https://github.com/your-username/repo.git
+
+
+Add the original repo as upstream:
+
+git remote add upstream https://github.com/original-owner/repo.git
+
+4 - Generate an SSH Key (if not already)
+
+ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+
+
+Default location:
+
+Private key → ~/.ssh/id_rsa
+
+Public key → ~/.ssh/id_rsa.pub
+
+Add SSH Key to Agent
+
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_rsa
+
+
+Copy Public Key to Remote Hosting Service
+
+cat ~/.ssh/id_rsa.pub
+
+
+Copy the output and paste into:
+
+GitHub → Settings > SSH and GPG Keys > New SSH Key
+
+GitLab → Settings > SSH Keys
+
+Bitbucket → Personal Settings > SSH Keys
+
+                        
+                            Git environment 
+                🌍 Remote Repository (e.g., GitHub, GitLab)
+                ──────────────────────────────────────────
+                          |             ^
+   git push               |             |    git pull
+   (upload commits)       |             |    (fetch + merge)
+                          v             |
+                ──────────────────────────────────────────
+                🖥️ Local Repository
+                ──────────────────────────────────────────
+                       |     ↑
+   git checkout        |     |   git fetch
+   (switch branch)     |     |   (download commits but
+                       v     |    do not merge yet)
+                ──────────────────────────────────────────
+                Working Directory (your files)
+                ──────────────────────────────────────────
+                       | 
+   git add             |
+   (stage changes)     |
+                       v
+                ──────────────────────────────────────────
+                Staging Area (Index)
+                ──────────────────────────────────────────
+                       |
+   git commit          |
+   (save snapshot)     v
+                ──────────────────────────────────────────
+                Local Repository (Commits History)
+                ──────────────────────────────────────────
+
+
+
+
+
+
